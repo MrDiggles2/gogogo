@@ -1,0 +1,11 @@
+{
+  "name": "go-image-maker",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "dump": "ls -d assets/games/* | xargs -n 1 node bin/main.js",
+    "main": "node bin/main.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
