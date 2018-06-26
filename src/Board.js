@@ -104,13 +104,6 @@ module.exports = class Board {
     }
 
     toString(board = this.boardArray) {
-        // return board.map(row => {
-        //     return row.map(entry => {
-        //         if (entry === null) return "_";
-        //         return entry.color === "black" ? "B" : "W"
-        //     }).join("  ");;
-        // }).join("\n")
-
         let string = '';
 
         for (let i = 0; i < this.length; i++) {
