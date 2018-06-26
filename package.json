@@ -4,8 +4,12 @@
   "description": "",
   "scripts": {
     "dump": "ls -d assets/games/* | xargs -n 1 node bin/main.js",
-    "main": "node bin/main.js"
+    "main": "node bin/main.js",
+    "test": "mocha"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "mocha": "^5.2.0"
+  }
 }
