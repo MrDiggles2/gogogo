@@ -2,7 +2,20 @@ var svg = require('svg-builder')
 
 module.exports = class Drawer {
     constructor(config) {
-        this.config = config;
+        this.config = {
+            //  Default values
+            unit: 20,
+            spacing: 3,
+            margin: 3,
+            radiusRatio: 0.6,
+            vertical: true,
+            background: '#000000',
+            black: '#505050',
+            white: '#FFFFFF',
+            outline: 'rgba(0,0,0,0)',
+
+            ...config
+        };
 
         this.builder = svg.newInstance();
 

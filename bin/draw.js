@@ -12,41 +12,36 @@ getData = async (filePath) => {
 				if (err) {
 					reject(err);
 				} else {
-					resolve(data.split("\n"));
+					resolve(data);
 				}
 			}
 		);
 	});
 };
 
-
 (async () => {
+    let argsArray = process.argv.slice(2);
 
-    const fileArray = process.argv.slice(2);
+    let config = {};
+    let fileArray = argsArray;
+
+    if (argsArray[0] === '-c') {
+        const configPath = path.join(process.cwd(), argsArray[1]);
+        config = require(configPath);
+        fileArray = argsArray.slice(2);
+    }
+
+    const drawer = new Drawer(config);
     const parser = new Parser();
-
-    const drawer = new Drawer({
-        unit: 20,
-        spacing: 3,
-        margin: 3,
-        radiusRatio: 0.6,
-        vertical: true,
-
-        background: '#000000',
-        black: '#505050',
-        white: '#FFFFFF',
-        outline: 'rgba(0,0,0,0)',
-    });
 
     for (let i = 0; i < fileArray.length; i++) {
         const file = fileArray[i];
 	    const filePath = path.join(process.cwd(), file);
         const data = await getData(filePath);
-        const board = parser.parse(data);
+        const board = parser.parse(data.split('\n'));
 
         drawer.drawBoard(board);
     }
 
     console.log(drawer.getSVG());
-})()
-.catch(console.error);
+})();
