@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "dump": "ls -d assets/games/* | xargs -n 1 node bin/main.js",
-    "main": "node bin/main.js",
+    "start": "node bin/main.js",
     "test": "mocha"
   },
   "author": "",
