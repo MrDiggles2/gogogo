@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "dump": "ls -d assets/games/* | xargs -n 1 node bin/main.js",
-    "start": "node bin/main.js",
+    "start": "ls -d assets/games/* | xargs node bin/draw.js",
     "test": "mocha"
   },
   "author": "",

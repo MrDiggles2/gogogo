@@ -34,14 +34,20 @@ getData = async (filePath) => {
     const drawer = new Drawer(config);
     const parser = new Parser();
 
-    for (let i = 0; i < fileArray.length; i++) {
-        const file = fileArray[i];
+    fileArray.forEach(file => {
 	    const filePath = path.join(process.cwd(), file);
         const data = await getData(filePath);
         const board = parser.parse(data.split('\n'));
 
         drawer.drawBoard(board);
-    }
+    });
 
-    console.log(drawer.getSVG());
+    const outPath = path.join(process.cwd(), './out.svg');
+
+    fs.writeFileSync(
+        outPath,
+        drawer.getSVG() + "\n"
+    );
+
+    console.log(`Output written to "${outPath}"`);
 })();
