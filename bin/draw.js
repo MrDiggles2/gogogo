@@ -34,13 +34,14 @@ getData = async (filePath) => {
     const drawer = new Drawer(config);
     const parser = new Parser();
 
-    fileArray.forEach(file => {
-	    const filePath = path.join(process.cwd(), file);
+    for (let i = 0; i < fileArray.length; i++) {
+        const file = fileArray[i];
+        const filePath = path.join(process.cwd(), file);
         const data = await getData(filePath);
         const board = parser.parse(data.split('\n'));
 
         drawer.drawBoard(board);
-    });
+    }
 
     const outPath = path.join(process.cwd(), './out.svg');
 
