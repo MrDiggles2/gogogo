@@ -4,14 +4,11 @@
   "description": "",
   "scripts": {
     "start": "ls -d assets/games/* | xargs node bin/draw.js",
-    "test": "mocha"
+    "test": "node --test"
   },
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "mocha": "^5.2.0"
-  },
   "dependencies": {
-    "svg-builder": "^1.0.0"
+    "svg-builder": "^3.0.4"
   }
 }

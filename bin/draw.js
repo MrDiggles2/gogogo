@@ -3,7 +3,7 @@ var path = require('path');
 var Parser = require('../src/Parser');
 var Drawer = require('../src/Drawer');
 
-getData = async (filePath) => {
+const getData = async (filePath) => {
 	return new Promise((resolve, reject) => {
 		fs.readFile(
 			filePath,
