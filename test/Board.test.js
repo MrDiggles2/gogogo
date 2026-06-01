@@ -79,6 +79,7 @@ test('should be able to remove a whole lot of pieces', function() {
         board.makeMove(new Move('black', coor[0], coor[1]));
     });
 
+    //  Finish him!
     board.makeMove(new Move('white', 12, 12));
 
     blackCoor.forEach((coor) => {
